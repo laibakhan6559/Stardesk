@@ -1,0 +1,93 @@
+/* ============ Step 1: apps launcher, home customize, shared components ============ */
+
+/* extra column width for Home widgets */
+.c12 { grid-column: span 12; }
+.wslot { min-width: 0; }
+
+/* ---------- Home customize ---------- */
+.home-tools { display: flex; justify-content: flex-end; margin-bottom: 0.7rem; }
+.customize { margin-bottom: 1.1rem; }
+.wslot.editing { position: relative; border: 3px dashed var(--accent); border-radius: 10px; padding: 6px; cursor: grab; background: color-mix(in srgb, var(--win) 35%, transparent); }
+.wslot.editing.dragging { opacity: 0.45; }
+.wslot.editing:active { cursor: grabbing; }
+.wcontent { pointer-events: none; user-select: none; }
+.wtools {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+  padding: 4px;
+  background: var(--win);
+  border: 2px solid var(--line);
+  border-radius: 8px;
+}
+.wname { flex: 1; min-width: 90px; font-family: var(--font-ui); font-size: 0.85rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wtools button {
+  min-width: 34px;
+  height: 32px;
+  padding: 0 6px;
+  font-size: 0.95rem;
+  background: var(--win2);
+  border: 2px solid var(--line);
+  border-radius: 6px;
+}
+.wtools button:hover:not(:disabled) { background: var(--accent); color: var(--accent-ink); }
+.wtools button:disabled { opacity: 0.35; cursor: not-allowed; }
+
+/* ---------- Apps launcher ---------- */
+.app-search { min-width: 220px; max-width: 320px; }
+.app-group { margin-bottom: 1.6rem; }
+.app-group h2 { font-size: 1.15rem; margin: 0 0 0.7rem; text-shadow: 2px 2px 0 var(--shadow); }
+.app-group h2 small { font-family: var(--font-body); font-size: 0.9rem; opacity: 0.8; margin-left: 0.3rem; }
+.app-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.8rem; }
+.app-card { position: relative; }
+.app-link {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  height: 100%;
+  padding: 10px 44px 10px 12px;
+  text-decoration: none;
+  background: var(--win);
+  border: 3px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 4px 4px 0 var(--shadow);
+}
+a.app-link:hover { transform: translate(-1px, -1px); box-shadow: 6px 6px 0 var(--shadow); background: var(--chip); }
+a.app-link:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--shadow); }
+.app-card.soon .app-link { opacity: 0.6; box-shadow: 2px 2px 0 var(--shadow); cursor: default; }
+.app-ico { font-size: 1.7rem; line-height: 1; flex: none; }
+.app-txt { display: grid; gap: 2px; min-width: 0; }
+.app-txt b { font-family: var(--font-ui); font-size: 0.98rem; font-weight: 600; }
+.app-txt small { color: var(--muted); font-size: 0.82em; line-height: 1.15; }
+.app-card .pill { position: absolute; top: 8px; right: 8px; }
+.pin { position: absolute; top: 6px; right: 6px; width: 32px; height: 32px; font-size: 1.2rem; line-height: 1; background: transparent; border: 0; color: var(--muted); }
+.pin.on, .pin:hover { color: var(--warn); }
+.backlink { display: inline-block; margin-bottom: 0.8rem; font-family: var(--font-ui); font-size: 0.9rem; text-decoration: none; padding: 3px 10px; background: var(--win); border: 2px solid var(--line); border-radius: 8px; }
+.backlink:hover { background: var(--chip); }
+
+/* ---------- shared: TickList ---------- */
+.ticklist { list-style: none; margin: 0.3rem 0 0; padding: 0; display: grid; gap: 4px; }
+.ticklist li { display: flex; align-items: center; gap: 0.5rem; padding: 4px 6px; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.ticklist label { flex: 1; min-width: 0; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+.ticklist input[type='checkbox'] { width: 20px; height: 20px; flex: none; accent-color: var(--accent); }
+.ticklist li.done span { text-decoration: line-through; opacity: 0.55; }
+.ticklist .x { flex: none; width: 28px; height: 28px; background: transparent; border: 0; color: var(--muted); font-size: 1.2rem; line-height: 1; }
+.ticklist .x:hover { color: var(--danger); }
+.ticklist-add { margin-bottom: 0.4rem; }
+
+/* ---------- shared: BarChart ---------- */
+.bchart { display: grid; gap: 4px; }
+.bplot { position: relative; height: var(--h, 150px); display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 8px; align-items: stretch; border-bottom: 3px solid var(--line); }
+.bcol { display: flex; flex-direction: column; justify-content: flex-end; align-items: center; height: 100%; min-width: 0; }
+.bcol em { font-style: normal; font-size: 0.8em; line-height: 1.1; }
+.bcol i { display: block; width: 70%; min-height: 0; background: linear-gradient(var(--accent), var(--accent2)); border: 2px solid var(--line); border-bottom: 0; border-radius: 4px 4px 0 0; }
+.bcol i[style*='height: 0%'] { border: 0; }
+.bcol.over i { background: linear-gradient(var(--danger), var(--warn)); }
+.bchart-limit { position: absolute; left: 0; right: 0; height: 0; border-top: 2px dashed var(--danger); pointer-events: none; z-index: 1; }
+.blabels { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 8px; text-align: center; }
+.blabels small { font-size: 0.8em; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ---------- shared: confetti layer ---------- */
+.fx-layer { position: fixed; inset: 0; width: 100vw; height: 100vh; z-index: 90; pointer-events: none; }

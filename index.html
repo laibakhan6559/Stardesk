@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" data-theme="pink">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Stardesk – Free Pixel Life Planner: Daily Planner, Habits, Budget, Prayer Times &amp; 30+ Mini Apps</title>
+    <meta
+      name="description"
+      content="Stardesk is a free, cute pixel-style life planner: day/week/month planner, reminders, habits, study timer, meal planner, budget tracker, bills, workout and water log, mood journal, prayer times, goals, reading list and 30+ more mini apps. No sign-up, your data stays private on your device."
+    />
+    <meta
+      name="keywords"
+      content="online planner, life planner, daily planner, weekly planner, monthly planner, study planner, student planner, habit tracker, budget tracker, expense tracker, bills reminder, meal planner, grocery list, workout log, water tracker, mood journal, prayer times Pakistan, Hijri date, pomodoro timer, job application tracker, goal planner, reading list, bucket list, gratitude journal, free planner, to-do list"
+    />
+    <meta name="author" content="Stardesk" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://stardesk.vercel.app/" />
+
+    <meta name="theme-color" content="#ff9bc8" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      (function () {
+        try {
+          var ids = ['pink', 'ocean', 'forest', 'sunset', 'sand', 'silver', 'galaxy', 'midnight', 'emerald', 'ember', 'graphite'];
+          var d = JSON.parse(localStorage.getItem('stardesk:v2') || 'null');
+          var t = d && d.settings && d.settings.theme;
+          if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'galaxy';
+          t = ids.indexOf(t) > -1 ? t : 'pink';
+          document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Stardesk" />
+    <meta property="og:title" content="Stardesk – Free Pixel Life Planner with 30+ Mini Apps" />
+    <meta
+      property="og:description"
+      content="Plan your day, track habits, budget, meals, health and goals, check prayer times and weather – all in one cute pixel desk. Free, private, no sign-up."
+    />
+    <meta property="og:url" content="https://stardesk.vercel.app/" />
+    <meta property="og:image" content="https://stardesk.vercel.app/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Stardesk – Free Pixel Life Planner" />
+    <meta
+      name="twitter:description"
+      content="A cute pixel life planner with 11 colour themes: reminders, habits, budget, meals, health, prayer times, goals and more. Free and private."
+    />
+    <meta name="twitter:image" content="https://stardesk.vercel.app/og.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebApplication",
+            "name": "Stardesk",
+            "url": "https://stardesk.vercel.app/",
+            "applicationCategory": "ProductivityApplication",
+            "operatingSystem": "Any (web browser)",
+            "browserRequirements": "Requires JavaScript",
+            "description": "A free pixel-style life planner with daily, weekly and monthly views, reminders, habit tracker, focus timer, meal planner, budget and bills tracker, health logs, prayer times, goals and 30+ mini apps.",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "featureList": [
+              "Daily, weekly and monthly planner with reminders and repeating events",
+              "To-do list, Eisenhower matrix and weekly priorities",
+              "Habit tracker with streaks, routines and habit stacking",
+              "Pomodoro focus timer, study log and class timetable",
+              "Meal planner, grocery and packing lists, home chores rotation",
+              "Budget and expense tracker, bills and subscriptions reminders",
+              "Birthdays, anniversaries and travel planner",
+              "Water and sleep tracker, workout log, medicine reminder, private cycle tracker",
+              "Breathing timer and mood journal with monthly heatmap",
+              "Job application tracker, freelance projects, invoices and time tracker, meeting notes",
+              "Goals and vision board, gratitude journal, reading list, watchlist, bucket list, time capsule",
+              "Prayer times, Hijri date, world clock, weather and countdown widgets",
+              "Customisable Home widgets, 11 colour themes (light and dark)",
+              "Works offline, JSON backup and restore, data stored privately in your browser"
+            ]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "Is Stardesk free?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Stardesk is completely free and needs no account or sign-up."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Where is my planner data stored?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Everything you enter is stored locally in your own browser. Nothing is uploaded to a server, and you can export or import a backup file from Settings. The cycle tracker and time capsules never leave your device."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do reminders work?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Add a reminder to any event. While Stardesk is open in a tab you get an in-app alert, a sound and, if you allow it, a browser notification."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I use Stardesk on my phone?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. The layout is fully responsive and you can install it to your home screen as an app."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does Stardesk show prayer times and the Hijri date?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Prayer times are calculated on your device from your city, calculation method and madhab, so they keep working offline. The Hijri date can be shifted by a day to match moon sighting in your country."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Does it work offline?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes. Stardesk installs as an app and keeps working without internet. Only the live weather widget needs a connection; it shows the last forecast when you are offline."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I move my data to another phone or computer?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Open Settings, tap Export backup, then open Stardesk on the other device and choose Import backup. Older backups are upgraded automatically."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What data does the weather widget send out?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Only the latitude and longitude of the city you choose are sent to the free Open-Meteo weather service to fetch the forecast. Your planner data is never sent."
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <main style="font-family: monospace; max-width: 640px; margin: 2rem auto; padding: 0 1rem">
+        <h1>Stardesk – free pixel life planner</h1>
+        <p>
+          Plan your day, week and month, set reminders, track habits, budget, meals, workouts and goals, check prayer times and weather, and keep
+          30+ mini apps in one pixel desk. Stardesk needs JavaScript enabled to run. Your data stays private in your browser.
+        </p>
+      </main>
+    </noscript>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

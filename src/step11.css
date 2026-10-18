@@ -1,0 +1,38 @@
+/* ============ Step 11: final polish ============ */
+
+/* search: keyboard-selected row */
+.results button.active { background: var(--chip); border-color: var(--accent); }
+.results li[role='option'] { list-style: none; }
+
+/* habits grid: fits phones without sideways scrolling */
+@media (max-width: 520px) {
+  .hgrid { grid-template-columns: minmax(78px, 1.6fr) repeat(7, minmax(26px, 1fr)); gap: 3px; }
+  .hday { font-size: 0.72rem; }
+  .hcell { height: 34px; border-width: 2px; font-size: 1rem; }
+  .hname { padding-right: 0; }
+}
+
+/* never let long words / wide media break the page on small screens */
+@media (max-width: 520px) {
+  .page img, .page canvas, .page svg { max-width: 100%; }
+  .page .win-body { overflow-wrap: anywhere; }
+}
+
+/* visible keyboard focus everywhere */
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* respect "reduce motion" for twinkling stars, confetti and pop-ins */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* printing a page (e.g. a trip or a list) without the chrome */
+@media print {
+  .bg, .topbar, .foot, .skip, .toasts, .backlink { display: none !important; }
+  body { background: #fff; color: #000; }
+}
+.crashbox { max-width: 560px; margin: 2rem auto; }
+
+/* window title bars: very long titles wrap instead of pushing the buttons off-screen */
+.win-bar h2 { min-width: 0; overflow-wrap: anywhere; }
+.win-btns { flex: none; }

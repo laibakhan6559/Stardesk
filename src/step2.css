@@ -1,0 +1,58 @@
+/* ============ Step 2: utility widgets (prayer, weather, clock, countdowns) ============ */
+
+/* ---------- prayer ---------- */
+.hijri-line { margin: 0 0 0.4rem; font-family: var(--font-ui); font-size: 0.95rem; }
+.next-prayer { margin: 0.4rem 0 0.6rem; }
+.ptimes { list-style: none; margin: 0 0 0.7rem; padding: 0; display: grid; gap: 4px; }
+.ptimes li { display: flex; justify-content: space-between; padding: 3px 8px; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.ptimes li.minor { opacity: 0.65; border-style: dashed; }
+.ptimes li.now { background: var(--accent); color: var(--accent-ink); box-shadow: 3px 3px 0 var(--shadow); }
+.ptimes.big li { padding: 8px 12px; font-size: 1.25rem; }
+.tablewrap { overflow-x: auto; }
+.ptable { width: 100%; border-collapse: collapse; font-size: 0.85em; white-space: nowrap; }
+.ptable th, .ptable td { padding: 4px 8px; border-bottom: 2px solid var(--win2); text-align: center; }
+.ptable th { font-family: var(--font-ui); font-weight: 600; }
+.ptable tr.today td { background: var(--chip); font-weight: 700; }
+.qibla { display: grid; justify-items: center; gap: 0.5rem; }
+.qibla-dial { position: relative; width: 120px; height: 120px; border: 3px solid var(--line); border-radius: 50%; background: var(--win2); }
+.qibla-dial .qn { position: absolute; top: 2px; left: 50%; transform: translateX(-50%); font: 600 0.8rem var(--font-ui); }
+.qibla-dial i { position: absolute; inset: 0; display: grid; justify-items: center; align-content: start; padding-top: 18px; font-style: normal; font-size: 1.6rem; }
+
+/* ---------- weather ---------- */
+.wx-now { display: flex; align-items: center; gap: 0.7rem; width: 100%; text-align: left; background: transparent; border: 0; padding: 0; }
+.wx-ico { font-size: 2rem; line-height: 1; }
+.wx-ico.big { font-size: 4rem; }
+.wx-temp { font: 600 2rem var(--font-ui); text-shadow: 2px 2px 0 var(--shadow); }
+.wx-temp.big { font-size: 3rem; }
+.wx-txt { display: grid; gap: 2px; }
+.wx-txt small { color: var(--muted); }
+.wx-big { display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem; }
+.wx-big p { margin: 0; }
+.forecast { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(90px, 1fr)); gap: 8px; }
+.forecast li { display: grid; justify-items: center; gap: 2px; padding: 8px 4px; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; text-align: center; }
+
+/* ---------- countdowns ---------- */
+.cdlist { list-style: none; margin: 0 0 0.7rem; padding: 0; display: grid; gap: 6px; }
+.cdlist li { display: flex; align-items: center; gap: 0.6rem; }
+.cd-n { flex: none; min-width: 52px; padding: 2px 6px; text-align: center; font: 600 1.5rem var(--font-ui); background: var(--chip); border: 2px solid var(--line); border-radius: 8px; }
+.cd-t { display: grid; min-width: 0; }
+.cd-t b { font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cd-t small { color: var(--muted); font-size: 0.8em; }
+.cdcards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 0.8rem; }
+.cdcards li { position: relative; display: grid; justify-items: center; gap: 2px; padding: 14px 10px; text-align: center; background: var(--win2); border: 3px solid var(--line); border-radius: 10px; box-shadow: 3px 3px 0 var(--shadow); }
+.cdcards li.soon { background: var(--chip); }
+.cdc-n { font: 600 3rem var(--font-ui); line-height: 1; text-shadow: 3px 3px 0 var(--shadow); }
+.cdc-u { font-size: 0.9em; color: var(--muted); margin-bottom: 4px; }
+.cdcards small { color: var(--muted); }
+.cdcards .x, .clock-card .x { position: absolute; top: 4px; right: 6px; width: 28px; height: 28px; background: transparent; border: 0; color: var(--muted); font-size: 1.2rem; line-height: 1; }
+.cdcards .x:hover, .clock-card .x:hover { color: var(--danger); }
+
+/* ---------- world clock ---------- */
+.wclist { list-style: none; margin: 0 0 0.7rem; padding: 0; display: grid; gap: 4px; }
+.wclist li { display: flex; justify-content: space-between; gap: 0.5rem; padding: 3px 8px; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.clocks { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 0.8rem; }
+.clock-card { position: relative; display: grid; gap: 2px; padding: 12px; background: var(--win2); border: 3px solid var(--line); border-radius: 10px; box-shadow: 3px 3px 0 var(--shadow); }
+.clock-card.me { background: var(--chip); }
+.cc-city { font-family: var(--font-ui); font-size: 0.95rem; padding-right: 26px; }
+.cc-time { font: 600 2rem var(--font-ui); text-shadow: 2px 2px 0 var(--shadow); }
+.clock-card small { color: var(--muted); font-size: 0.8em; }

@@ -1,0 +1,22 @@
+{
+  "name": "stardesk",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Stardesk - a pixel-style life planner: day/week/month planner, reminders, habits, study timer, meals, budget, bills, health logs, prayer times, goals and 30+ mini apps. Data stays in your browser.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "adhan": "^4.4.6",
+    "date-fns": "^3.6.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.11"
+  }
+}

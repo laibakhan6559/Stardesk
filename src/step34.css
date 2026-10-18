@@ -1,0 +1,110 @@
+/* ============ Steps 3-4: daily life apps (meals, lists, chores, budget, bills, birthdays, travel) ============ */
+
+.pos { color: var(--ok); }
+.neg { color: var(--danger); }
+
+/* ---------- shared bits ---------- */
+.stats3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; margin-bottom: 0.7rem; }
+.stats3 > div { display: grid; gap: 2px; padding: 8px 10px; text-align: center; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.stats3 small { color: var(--muted); font-size: 0.8em; }
+.stats3 b { font: 600 1.15rem var(--font-ui); overflow-wrap: anywhere; }
+
+.banner { margin: 0 0 1.1rem; padding: 8px 12px; border: 3px solid var(--line); border-radius: 10px; box-shadow: 4px 4px 0 var(--shadow); background: var(--win); }
+.banner p { margin: 0.15rem 0; }
+.banner.bad { border-color: var(--danger); background: color-mix(in srgb, var(--danger) 16%, var(--win)); }
+.banner.warn { border-color: var(--warn); background: color-mix(in srgb, var(--warn) 18%, var(--win)); }
+
+.chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.chips li { display: inline-flex; align-items: center; gap: 4px; padding: 2px 4px 2px 10px; background: var(--chip); border: 2px solid var(--line); border-radius: 999px; }
+.chips li button { width: 22px; height: 22px; padding: 0; background: transparent; border: 0; color: var(--muted); font-size: 1.1rem; line-height: 1; }
+.chips li button:hover { color: var(--danger); }
+.chips.presets { margin-bottom: 0.7rem; }
+.chips.presets .chip { font-size: 0.8rem; padding: 3px 10px; cursor: pointer; }
+
+.listpick { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.listpick button { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; padding: 6px 10px; text-align: left; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.listpick button:hover { background: var(--chip); }
+.listpick button.on { background: var(--accent); color: var(--accent-ink); box-shadow: 3px 3px 0 var(--shadow); }
+.listpick small { opacity: 0.8; }
+
+/* ---------- meals ---------- */
+.mealweek { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 0.8rem; }
+.mealday { display: grid; gap: 6px; padding: 10px; background: var(--win2); border: 3px solid var(--line); border-radius: 10px; box-shadow: 3px 3px 0 var(--shadow); }
+.mealday.today { background: var(--chip); border-color: var(--accent); }
+.mealday header { display: flex; align-items: baseline; gap: 0.5rem; }
+.mealday header b { font-family: var(--font-ui); }
+.mealday header small { color: var(--muted); flex: 1; }
+.dice { width: 30px; height: 30px; padding: 0; background: transparent; border: 0; font-size: 1.1rem; }
+.dice:hover { transform: rotate(20deg); }
+.mealslot { display: grid; gap: 2px; }
+.mealslot span { font-size: 0.8em; color: var(--muted); }
+.mealtoday { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.mealtoday li { display: grid; gap: 1px; padding: 4px 8px; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.mealtoday li span { font-size: 0.8em; color: var(--muted); }
+.mealtoday li.none { opacity: 0.55; border-style: dashed; }
+.mealtoday li b { font-weight: 500; overflow-wrap: anywhere; }
+
+/* ---------- chores ---------- */
+.chorelist { list-style: none; margin: 0.6rem 0 0; padding: 0; display: grid; gap: 6px; }
+.chorelist li { display: flex; align-items: center; gap: 0.6rem; padding: 8px 10px; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.chorelist li.done { opacity: 0.6; }
+.chorelist li.done .ch-txt b { text-decoration: line-through; }
+.ch-ico { font-size: 1.5rem; line-height: 1; flex: none; }
+.ch-txt { flex: 1; min-width: 0; display: grid; gap: 1px; }
+.ch-txt small { color: var(--muted); font-size: 0.82em; }
+.ch-when { flex: none; font-size: 0.8em; color: var(--muted); white-space: nowrap; }
+.chorelist .x, .billlist .x, .txlist .x, .itin .x { flex: none; width: 28px; height: 28px; background: transparent; border: 0; color: var(--muted); font-size: 1.2rem; line-height: 1; }
+.chorelist .x:hover, .billlist .x:hover, .txlist .x:hover, .itin .x:hover { color: var(--danger); }
+
+/* ---------- budget ---------- */
+.catlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.catlist li.st-over .progress i { background: var(--danger); }
+.catlist li.st-near .progress i { background: var(--warn); }
+.catlist .progress { margin-top: 4px; }
+.txlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.txlist li { display: flex; align-items: center; gap: 0.6rem; padding: 6px 10px; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.tx-ico { font-size: 1.3rem; flex: none; }
+.tx-txt { flex: 1; min-width: 0; display: grid; gap: 1px; }
+.tx-txt b { font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tx-txt small { color: var(--muted); font-size: 0.8em; }
+
+/* ---------- bills ---------- */
+.billlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.billlist li { display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem; padding: 8px 10px; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.billlist li.paid { opacity: 0.7; }
+.billlist li.paused { opacity: 0.5; border-style: dashed; }
+.billlist li.late { border-color: var(--danger); }
+.bl-ico { font-size: 1.5rem; line-height: 1; flex: none; }
+.bl-txt { flex: 1; min-width: 140px; display: grid; gap: 1px; }
+.bl-txt small { color: var(--muted); font-size: 0.82em; }
+.bl-act { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+
+/* ---------- birthdays ---------- */
+.occlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.occlist > li { padding: 10px; background: var(--win2); border: 3px solid var(--line); border-radius: 10px; box-shadow: 3px 3px 0 var(--shadow); }
+.occlist > li.soon { background: var(--chip); }
+.oc-row { display: flex; align-items: center; gap: 0.7rem; }
+.oc-ico { font-size: 1.8rem; line-height: 1; flex: none; }
+.oc-txt { flex: 1; min-width: 0; display: grid; gap: 1px; }
+.oc-txt small { color: var(--muted); font-size: 0.82em; }
+.oc-note { font-style: italic; }
+.yearlist { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.yearlist li { display: flex; gap: 0.6rem; padding: 3px 8px; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.yearlist li span { flex: none; min-width: 52px; color: var(--muted); }
+.yearlist li b { font-weight: 500; overflow-wrap: anywhere; }
+
+/* ---------- travel ---------- */
+.trip-head { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 0.7rem; }
+.trip-head p { margin: 0; }
+.itin { display: grid; gap: 0.9rem; margin-top: 0.8rem; }
+.itin h3 { margin: 0 0 4px; font-size: 1rem; }
+.itin h3 small { color: var(--muted); font-family: var(--font-body); font-weight: 400; margin-left: 0.3rem; }
+.itin ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.itin li { display: flex; align-items: center; gap: 0.6rem; padding: 4px 8px; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.itin time { flex: none; min-width: 48px; color: var(--muted); font-size: 0.85em; }
+.itin li span { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+
+@media (max-width: 640px) {
+  .stats3 b { font-size: 1rem; }
+  .bl-act { margin-left: 0; width: 100%; }
+}

@@ -1,0 +1,177 @@
+/* ============ Stardesk · responsive pass (loaded last) ============
+   Breakpoints:  ≤1024 tablet · ≤768 small tablet · ≤640 phone · ≤400 small phone
+   Also: notch / safe-area support, touch-sized controls, short landscape screens.
+   ================================================================ */
+
+/* ---------- global safety ---------- */
+html { -webkit-tap-highlight-color: transparent; }
+body { overflow-x: clip; }
+img, svg, canvas, video { max-width: 100%; }
+table { max-width: 100%; }
+
+/* notch / rounded-corner devices (viewport-fit=cover is already set) */
+.topbar { padding-top: calc(8px + env(safe-area-inset-top, 0px)); }
+.tabs { padding-left: max(10px, env(safe-area-inset-left, 0px)); padding-right: max(10px, env(safe-area-inset-right, 0px)); }
+.page { padding-left: max(14px, env(safe-area-inset-left, 0px)); padding-right: max(14px, env(safe-area-inset-right, 0px)); }
+.foot { padding-bottom: calc(2.5rem + env(safe-area-inset-bottom, 0px)); }
+.toasts { right: max(12px, env(safe-area-inset-right, 0px)); bottom: calc(12px + env(safe-area-inset-bottom, 0px)); }
+
+
+/* modals that open inside <main> must sit above the sticky top bar */
+.page:has(> .overlay), .page:has(.overlay) { z-index: 85; }
+@supports not selector(:has(*)) {
+  .overlay { padding-top: calc(64px + env(safe-area-inset-top, 0px)); }
+}
+
+/* top bar: smooth horizontal tab scrolling */
+.tabnav { -webkit-overflow-scrolling: touch; scroll-behavior: smooth; overscroll-behavior-x: contain; padding-right: 6px; }
+.win-bar h2 { min-width: 0; }
+
+/* very large screens: use the space a little better */
+@media (min-width: 1500px) {
+  .tabs, .page { max-width: 1320px; }
+}
+
+/* ---------- tablet (≤1024) ---------- */
+@media (max-width: 1024px) {
+  .page-head { gap: 0.6rem; }
+  .app-grid { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+  .feat { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+}
+
+/* ---------- small tablet (≤768) ---------- */
+@media (max-width: 768px) {
+  .app-search { min-width: 0; max-width: none; width: 100%; }
+  .goalgrid, .routgrid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+  .mealweek { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  .week { grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); }
+  .toolbar { gap: 0.6rem; }
+}
+
+/* ---------- phone (≤640) ---------- */
+@media (max-width: 640px) {
+  body { font-size: 19px; }
+  .page { padding-top: 1rem; padding-bottom: 1.5rem; }
+  .win-body { padding: 0.75rem 0.8rem 0.85rem; }
+  .win { box-shadow: 3px 3px 0 var(--shadow); }
+  .grid12 { gap: 0.8rem; }
+
+  /* top bar */
+  .tab { padding: 6px 12px 5px; font-size: 0.9rem; }
+  .tab.on { padding-bottom: 8px; }
+  .tab.search, .tab.theme { min-width: 42px; text-align: center; }
+
+  /* page header: title + actions stack nicely */
+  .page-head { flex-direction: column; align-items: stretch; }
+  .page-head > .btn, .page-head > .row, .page-head > .navbtns { align-self: flex-start; }
+  .page-sub { font-size: 0.95em; }
+
+  /* toolbars (planner etc.) */
+  .toolbar { flex-direction: column; align-items: stretch; }
+  .toolbar > * { max-width: 100%; }
+  .navbtns { justify-content: flex-start; }
+  .range-title { font-size: 1.1rem; }
+  .seg.center, .seg.wrapseg { max-width: 100%; }
+  .seg { max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+  .seg::-webkit-scrollbar { display: none; }
+  .seg button { white-space: nowrap; flex: none; }
+
+  /* forms: controls wrap instead of squeezing or clipping */
+  .row { flex-wrap: wrap; }
+  .row > input:not([type='checkbox']):not([type='radio']):not(.chk),
+  .row > select,
+  .row > textarea,
+  .row > .field { flex: 1 1 8.5rem; min-width: 0; }
+  .row > .btn { flex: none; }
+  .form .row > .grow { flex: 1 1 8.5rem; }
+  input[type='date'], input[type='time'], input[type='month'], input[type='datetime-local'] { min-width: 0; max-width: 100%; }
+
+  /* list rows: let actions drop to their own line rather than crush the text */
+  .tasklist li, .chorelist li, .txlist li, .wolist li, .bucketlist li, .itin li, .erow { flex-wrap: wrap; row-gap: 4px; }
+  .tasklist .ttl, .erow-main, .bl-txt, .jb-main, .bk-main { flex: 1 1 8rem; min-width: 0; }
+  .bl-act { margin-left: auto; }
+  .classline { flex-wrap: wrap; }
+
+  /* habit tracker: names keep a readable width, the week scrolls sideways with a pinned name column */
+  .hgrid { grid-template-columns: 116px repeat(7, 38px); gap: 4px; overflow-x: auto; padding-bottom: 6px; -webkit-overflow-scrolling: touch; }
+  .hgrid > .hname { position: sticky; left: 0; z-index: 1; background: var(--win); padding-right: 6px; box-shadow: 6px 0 6px -6px rgba(0, 0, 0, 0.25); }
+  .hday { font-size: 0.78rem; }
+  .hcell { height: 36px; }
+  .hname b { overflow-wrap: break-word; word-break: normal; }
+
+  /* month grid / timetable stay readable */
+  .mgrid { gap: 3px; }
+  .dow { font-size: 0.72rem; }
+  .tt { grid-template-columns: minmax(0, 1fr); }
+  .week { grid-template-columns: minmax(0, 1fr); }
+
+  /* stat tiles and dashboards */
+  .stats3 { gap: 0.4rem; }
+  .stats b { font-size: 1.2rem; }
+  .big { font-size: 1.9rem; }
+
+  /* prayer table + any wide table scrolls inside its card */
+  .tablewrap, .win-body table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  /* overlays: modal / search use the full width, scroll inside */
+  .overlay { padding: calc(10px + env(safe-area-inset-top, 0px)) 10px 10px; }
+  .modal { width: 100%; max-height: calc(100dvh - 24px); display: flex; flex-direction: column; }
+  .modal .win-bar { flex: none; }
+  .modal .win-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; overscroll-behavior: contain; }
+  .search-input { font-size: 1.1rem; }
+
+  /* toasts: full-width banner above the home indicator */
+  .toasts { left: max(10px, env(safe-area-inset-left, 0px)); right: max(10px, env(safe-area-inset-right, 0px)); width: auto; }
+
+  /* settings, buttons and big clock */
+  .themebtn, .bigbtn { min-width: 0; flex: 1 1 100%; }
+  .clock { font-size: clamp(2.8rem, 16vw, 4.6rem); }
+  .qibla-dial { width: 100px; height: 100px; }
+}
+
+/* ---------- small phone (≤400) ---------- */
+@media (max-width: 400px) {
+  body { font-size: 18px; }
+  .page { padding-left: max(10px, env(safe-area-inset-left, 0px)); padding-right: max(10px, env(safe-area-inset-right, 0px)); }
+  .win-body { padding: 0.65rem 0.65rem 0.75rem; }
+  .win-bar { padding: 3px 6px; }
+  .win-bar h2 { font-size: 0.88rem; }
+  .tab { padding: 6px 10px 5px; }
+  .app-grid, .feat { grid-template-columns: minmax(0, 1fr); }
+  .goalgrid, .routgrid, .mealweek { grid-template-columns: minmax(0, 1fr); }
+  .vboard { grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); }
+  .clocks, .cdcards { grid-template-columns: minmax(0, 1fr); }
+  .forecast { grid-template-columns: repeat(auto-fit, minmax(76px, 1fr)); }
+  .patterns { grid-template-columns: minmax(0, 1fr); }
+  .moodbars li { grid-template-columns: 5rem minmax(0, 1fr) 1.4rem; }
+  .setrow { grid-template-columns: 2.6rem minmax(0, 1fr) auto minmax(0, 1fr) auto 24px; }
+}
+
+/* ---------- touch screens: finger-sized targets ---------- */
+@media (pointer: coarse) {
+  .btn { min-height: 42px; }
+  .btn.small { min-height: 36px; }
+  .win-btns button { min-width: 32px; height: 30px; }
+  .win-bar { padding-top: 4px; padding-bottom: 4px; }
+  .x { width: 34px; height: 34px; }
+  .chips li button { width: 30px; height: 30px; }
+  .chk { width: 26px; height: 26px; }
+  .seg button, .seg.small button { min-height: 38px; }
+  .chip, .chips.presets .chip { min-height: 34px; display: inline-flex; align-items: center; }
+  .tab { min-height: 38px; }
+  .results button { min-height: 44px; }
+  .toast button { min-width: 32px; min-height: 32px; }
+  input, select { min-height: 42px; }
+  input[type='checkbox'], input[type='radio'] { min-height: 0; }
+  .eq-move button { min-width: 32px; min-height: 32px; }
+}
+
+/* ---------- short landscape phones ---------- */
+@media (max-height: 480px) and (orientation: landscape) {
+  .overlay { padding-top: 10px; }
+  .modal { max-height: calc(100dvh - 20px); display: flex; flex-direction: column; }
+  .modal .win-body { flex: 1 1 auto; min-height: 0; overflow-y: auto; }
+  .orbstage { height: 170px; }
+  .orb { width: 140px; height: 140px; }
+  .topbar { position: static; }
+}

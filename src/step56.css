@@ -1,0 +1,101 @@
+/* ============ Steps 5-6: health apps (water & sleep, workout, medicine, cycle, breathing, mood) ============ */
+
+.bcol.hit i { background: linear-gradient(var(--ok), var(--accent2)); }
+.bchart-limit.goal { border-top-color: var(--ok); }
+.chips.presets .chip[aria-pressed] { cursor: pointer; }
+.center-row { justify-content: center; margin: 0.4rem 0 1rem; }
+.linkbtn { display: block; margin: 0.5rem auto 0; padding: 2px 6px; background: transparent; border: 0; color: var(--muted); font-size: 0.85em; text-decoration: underline; cursor: pointer; }
+.linkbtn:hover { color: var(--ink); }
+.vibe-note { margin-top: 0.6rem; }
+.x:disabled { opacity: 0.3; cursor: default; }
+.wclist .x { width: 22px; height: 22px; background: transparent; border: 0; color: var(--muted); font-size: 1.1rem; line-height: 1; vertical-align: middle; }
+.wclist .x:hover { color: var(--danger); }
+
+/* ---------- water ---------- */
+.glasses { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 0.7rem; }
+.glasses button { width: 38px; height: 44px; padding: 0; font-size: 1.25rem; background: var(--win2); border: 2px dashed var(--line); border-radius: 8px; filter: grayscale(1); opacity: 0.45; }
+.glasses button.on { filter: none; opacity: 1; border-style: solid; background: var(--chip); transform: translateY(-1px); }
+.glasses button:hover { opacity: 0.85; }
+
+/* ---------- workout ---------- */
+.setrows { display: grid; gap: 6px; }
+.setrow { display: grid; grid-template-columns: 3.4rem minmax(0, 1fr) auto minmax(0, 1fr) auto 28px; align-items: center; gap: 6px; }
+.setrow span { color: var(--muted); font-size: 0.85em; white-space: nowrap; }
+.setrow .x, .doselist .x { width: 28px; height: 28px; background: transparent; border: 0; color: var(--muted); font-size: 1.2rem; line-height: 1; }
+.setrow .x:hover, .wolist .x:hover { color: var(--danger); }
+.daylabel { display: flex; align-items: baseline; justify-content: space-between; gap: 0.5rem; margin: 0 0 6px; font: 600 1rem var(--font-ui); }
+.daylabel small { color: var(--muted); font: inherit; font-size: 0.8em; }
+.wolist { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.wolist li { display: flex; align-items: center; gap: 0.6rem; padding: 6px 10px; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.wo-txt { flex: 1; min-width: 0; display: grid; gap: 1px; }
+.wo-txt small { color: var(--muted); font-size: 0.82em; overflow-wrap: anywhere; }
+.wolist .x { flex: none; width: 28px; height: 28px; background: transparent; border: 0; color: var(--muted); font-size: 1.2rem; line-height: 1; }
+
+/* ---------- medicine ---------- */
+.doselist { list-style: none; margin: 0 0 0.6rem; padding: 0; display: grid; gap: 8px; }
+.doselist li { display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem; padding: 8px 10px; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.doselist li.taken { opacity: 0.65; }
+.doselist li.due { border-color: var(--warn); background: color-mix(in srgb, var(--warn) 14%, var(--win2)); }
+.doselist li.missed { border-color: var(--danger); }
+.doselist .bl-txt { flex: 1; min-width: 120px; }
+
+/* ---------- month grid (mood heatmap + cycle calendar) ---------- */
+.monthnav { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.6rem; }
+.monthnav b { font-family: var(--font-ui); }
+.mgrid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+.mg-head { text-align: center; font-size: 0.8em; color: var(--muted); }
+.mg-pad { min-height: 1px; }
+.mg-day { position: relative; display: grid; place-items: center; aspect-ratio: 1; min-height: 38px; padding: 0; font: inherit; color: var(--ink); background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+button.mg-day { cursor: pointer; }
+button.mg-day:hover { transform: translateY(-1px); }
+.mg-day.today { box-shadow: 0 0 0 2px var(--accent); }
+.mg-day.sel { outline: 3px solid var(--accent2); outline-offset: 1px; }
+.mg-day.future { opacity: 0.45; cursor: default; }
+.mg-day i { position: absolute; right: 4px; bottom: 1px; font-style: normal; font-size: 0.7rem; line-height: 1; }
+.legend { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px 12px; margin: 0.7rem 0 0; font-size: 0.8em; color: var(--muted); }
+.legend > span { display: inline-flex; align-items: center; gap: 4px; }
+.dot { display: inline-block; width: 16px; height: 16px; border: 2px solid var(--line); border-radius: 4px; background: var(--win2); }
+
+.mood-1 { background: #ff7a8a; color: #1b2238; }
+.mood-2 { background: #ffab7a; color: #1b2238; }
+.mood-3 { background: #f7dd6a; color: #1b2238; }
+.mood-4 { background: #a4e08c; color: #1a2a22; }
+.mood-5 { background: #55d49a; color: #1a2a22; }
+.cy-log { background: #ff6fb0; color: #1b2238; }
+.cy-pred { background: transparent; border-style: dashed; border-color: var(--accent); }
+.dot.cy-pred { background: transparent; }
+
+.moodbars { list-style: none; margin: 0 0 0.6rem; padding: 0; display: grid; gap: 6px; }
+.moodbars li { display: grid; grid-template-columns: 6.2rem minmax(0, 1fr) 1.6rem; align-items: center; gap: 8px; font-size: 0.9em; }
+.moodbars .progress { height: 14px; }
+.moodbars .progress i { height: 100%; }
+.moodbars b { text-align: right; }
+.moodlines { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.moodlines button { width: 100%; display: flex; align-items: center; gap: 0.6rem; padding: 6px 10px; text-align: left; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.moodlines button:hover { background: var(--chip); }
+.ml-face { font-size: 1.4rem; flex: none; }
+.ml-txt { min-width: 0; display: grid; gap: 1px; }
+.ml-txt small { color: var(--muted); font-size: 0.8em; }
+.ml-txt b { font-weight: 500; overflow-wrap: anywhere; }
+
+/* ---------- breathing ---------- */
+.orbstage { display: grid; place-items: center; height: 250px; margin: 0.2rem 0; border: 3px solid var(--line); border-radius: 10px; background: linear-gradient(var(--win2), var(--chip)); overflow: hidden; }
+.orb { width: 210px; height: 210px; image-rendering: pixelated; transition: transform 0.1s steps(1); filter: drop-shadow(4px 4px 0 var(--shadow)); }
+.o-fill { fill: var(--accent); }
+.o-edge { fill: var(--accent2); }
+.o-shine { fill: #fff; opacity: 0.75; }
+.breath-text { margin: 0.7rem 0 0; text-align: center; font: 600 1.6rem var(--font-ui); }
+.breath-sub { margin: 0.1rem 0 0.8rem; text-align: center; color: var(--muted); }
+.locked { opacity: 0.55; pointer-events: none; }
+.patterns { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; margin-top: 0.3rem; }
+.patterns button { display: grid; gap: 2px; padding: 8px 10px; text-align: left; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.patterns button small { color: var(--muted); font-size: 0.8em; }
+.patterns button.on { background: var(--accent); color: var(--accent-ink); box-shadow: 3px 3px 0 var(--shadow); }
+.patterns button.on small { color: inherit; opacity: 0.85; }
+@media (prefers-reduced-motion: reduce) { .orb { transition: none; } }
+@media (max-width: 520px) { .setrow { grid-template-columns: 3rem minmax(0, 1fr) auto minmax(0, 1fr) auto 24px; gap: 4px; } .orbstage { height: 210px; } .orb { width: 170px; height: 170px; } }
+.moodbars .progress i.mood-1 { background: #ff7a8a; animation: none; }
+.moodbars .progress i.mood-2 { background: #ffab7a; animation: none; }
+.moodbars .progress i.mood-3 { background: #f7dd6a; animation: none; }
+.moodbars .progress i.mood-4 { background: #a4e08c; animation: none; }
+.moodbars .progress i.mood-5 { background: #55d49a; animation: none; }

@@ -1,0 +1,66 @@
+/* ============ Steps 9-10: growth apps (goals, vision board, gratitude, reading, watchlist, bucket, quotes, capsule) ============ */
+
+.starrate { display: inline-flex; gap: 2px; }
+.starrate button { width: 26px; height: 26px; padding: 0; background: transparent; border: 0; color: var(--muted); font-size: 1.2rem; line-height: 1; opacity: 0.45; }
+.starrate button.on { color: var(--warn); opacity: 1; }
+
+/* goals + vision */
+.goalgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.1rem; align-items: start; }
+.goal-done .win-bar h2 { text-decoration: line-through; opacity: 0.8; }
+.swatches { display: flex; flex-wrap: wrap; gap: 6px; }
+.swatches button { width: 28px; height: 28px; padding: 0; border: 2px solid var(--line); border-radius: 6px; }
+.swatches button.on { outline: 3px solid var(--ink); outline-offset: 1px; }
+.vboard { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; }
+.vboard li { position: relative; display: grid; place-items: center; align-content: center; gap: 6px; min-height: 130px; padding: 10px; text-align: center; background: var(--vc, var(--chip)); color: #1b2238; border: 3px solid var(--line); border-radius: 8px; box-shadow: 3px 3px 0 var(--shadow); }
+.vboard img { width: 100%; max-width: 96px; height: auto; aspect-ratio: 1; image-rendering: pixelated; border: 2px solid #1b2238; }
+.vboard .v-emoji { font-size: 2.6rem; line-height: 1; }
+.vboard p { margin: 0; font: 600 0.9rem var(--font-ui); overflow-wrap: anywhere; }
+.vboard .x { position: absolute; top: 2px; right: 2px; width: 24px; height: 24px; background: rgba(255,255,255,0.6); border: 0; border-radius: 6px; color: #1b2238; font-size: 1.1rem; line-height: 1; opacity: 0; }
+.vboard li:hover .x, .vboard .x:focus-visible { opacity: 1; }
+@media (hover: none) { .vboard .x { opacity: 0.8; } }
+.vprev { image-rendering: pixelated; width: 48px; height: 48px; border: 2px solid var(--line); }
+
+/* gratitude */
+.gratlist { list-style: none; margin: 0 0 0.5rem; padding: 0; display: grid; gap: 8px; }
+.gratlist li { display: flex; align-items: center; gap: 0.6rem; }
+.gratlist li span { font-size: 1.4rem; }
+.gratlist input { flex: 1; min-width: 0; }
+.gratpast { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.gratpast button { width: 100%; display: grid; gap: 1px; padding: 6px 10px; text-align: left; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.gratpast button:hover { background: var(--chip); }
+.gratpast small { color: var(--muted); }
+.gratpast span { overflow-wrap: anywhere; }
+
+/* reading + watchlist */
+.booklist { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.booklist li { display: flex; align-items: center; flex-wrap: wrap; gap: 0.6rem; padding: 8px 10px; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.bk-main { flex: 1; min-width: 160px; display: grid; gap: 3px; }
+.bk-main small { color: var(--muted); font-size: 0.82em; }
+.bk-act { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; margin-left: auto; }
+.booklist .x { flex: none; width: 28px; height: 28px; background: transparent; border: 0; color: var(--muted); font-size: 1.2rem; line-height: 1; }
+.booklist .x:hover { color: var(--danger); }
+.wnote { padding: 3px 8px; font-size: 0.9em; }
+
+/* bucket list */
+.bucketlist { list-style: none; margin: 0.8rem 0 0; padding: 0; display: grid; gap: 6px; }
+.bucketlist li { display: flex; align-items: center; gap: 0.7rem; padding: 8px 10px; background: var(--win2); border: 2px solid var(--line); border-radius: 8px; }
+.bucketlist li.done { opacity: 0.7; background: color-mix(in srgb, var(--ok) 12%, var(--win2)); }
+.b-tick { flex: none; width: 36px; height: 36px; padding: 0; background: var(--win); border: 3px solid var(--line); border-radius: 8px; font-size: 1.4rem; line-height: 1; color: var(--warn); }
+.bucketlist li.done .b-tick { background: var(--warn); color: #1b2238; }
+.b-txt { flex: 1; min-width: 0; display: grid; gap: 1px; overflow-wrap: anywhere; }
+.bucketlist li.done .b-txt b { text-decoration: line-through; }
+.b-txt small { color: var(--muted); }
+.bucketlist .x { flex: none; width: 28px; height: 28px; background: transparent; border: 0; color: var(--muted); font-size: 1.2rem; line-height: 1; }
+.bucketlist .x:hover { color: var(--danger); }
+
+/* quotes + challenge */
+.affirm { margin: 0.4rem 0 1rem; text-align: center; font: 600 1.45rem/1.4 var(--font-ui); overflow-wrap: anywhere; }
+.challenge { margin: 0.4rem 0 1rem; padding: 12px; text-align: center; font-size: 1.2rem; background: var(--chip); border: 3px dashed var(--line); border-radius: 10px; }
+.challenge.small { margin: 0.4rem 0 0.6rem; padding: 6px 8px; font-size: 0.95rem; }
+.challenge.done { opacity: 0.6; border-style: solid; text-decoration: line-through; }
+.favlist { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; font-style: italic; }
+
+/* time capsule */
+.capsule-sealed { margin: 0.4rem 0; padding: 14px; text-align: center; background: var(--win2); border: 3px dashed var(--line); border-radius: 10px; font-size: 1.05rem; }
+.capsule-text { margin: 0.4rem 0 0.8rem; padding: 12px; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.5; background: var(--win2); border: 2px solid var(--line); border-radius: 10px; }
+.capsule-text.fresh { border-color: var(--accent); box-shadow: 0 0 0 3px var(--chip); }

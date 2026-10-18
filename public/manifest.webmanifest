@@ -1,0 +1,48 @@
+{
+  "name": "Stardesk – Pixel Life Planner",
+  "short_name": "Stardesk",
+  "description": "A pixel life planner: day/week/month planner, reminders, habits, budget, meals, health, prayer times, goals and 30+ mini apps. Private and offline-friendly.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#1b0c3f",
+  "theme_color": "#ff9bc8",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": [
+    "productivity",
+    "lifestyle",
+    "education"
+  ],
+  "shortcuts": [
+    {
+      "name": "Planner",
+      "url": "/#planner"
+    },
+    {
+      "name": "Tasks",
+      "url": "/#tasks"
+    },
+    {
+      "name": "All apps",
+      "url": "/#apps"
+    }
+  ]
+}
